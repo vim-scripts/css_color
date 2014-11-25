@@ -1,0 +1,9 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=5056
+
+A very fast fork of vimscript #2150 with extra features:
+
+ multiple color highlights per line
+ rgb(), rgba(), hsl() support
+
+Screenshot available at
+https://github.com/ap/vim-css-color
