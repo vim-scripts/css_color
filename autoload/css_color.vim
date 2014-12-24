@@ -1,6 +1,6 @@
 " Language:     Colorful CSS Color Preview
 " Author:       Aristotle Pagaltzis <pagaltzis@gmx.de>
-" Commit:       f511b5e3d939070e16e180e44e97629ca5676a08
+" Commit:       e44b2b983b39e63a92660385791c5fe8e3dedb5d
 " Licence:      The MIT License (MIT)
 
 if v:version < 700
@@ -235,9 +235,9 @@ endfunction
 
 let s:_hexcolor   = '#\(\x\{3}\|\x\{6}\)\>' " submatch 1
 let s:_funcname   = '\(rgb\|hsl\)a\?' " submatch 2
-let s:_numval     = '\(\d\{1,3}%\?\)' " submatch 3,4,5
 let s:_ws_        = '\s*'
-let s:_listsep    = s:_ws_ . ',' . s:_ws_
+let s:_numval     = s:_ws_ . '\(\d\{1,3}%\?\)' " submatch 3,4,5
+let s:_listsep    = s:_ws_ . ','
 let s:_otherargs_ = '\%(,[^)]*\)\?'
 let s:_funcexpr   = s:_funcname . '[(]' . s:_numval . s:_listsep . s:_numval . s:_listsep . s:_numval . s:_ws_ . s:_otherargs_ . '[)]'
 let s:_csscolor   = s:_hexcolor . '\|' . s:_funcexpr
@@ -271,7 +271,7 @@ function! css_color#init(type, groups)
 		autocmd BufWinLeave <buffer> call s:clear_matches()
 	augroup END
 
-	do CSSColor CursorMoved <buffer>
+	exe 'call s:parse_'.a:type.'_screen()'
 
 	if a:type != 'css' | return | endif
 
