@@ -3,7 +3,9 @@ This is a mirror of http://www.vim.org/scripts/script.php?script_id=5056
 A very fast fork of vimscript #2150 with extra features:
 
  multiple color highlights per line
- rgb(), rgba(), hsl() support
+ rgb(), rgba(), hsl() support for CSS
+ support for various alternative CSS languages like Less and Sass
+ support for various non-CSS languages like VimL and Lua
 
 Screenshot available at
 https://github.com/ap/vim-css-color
